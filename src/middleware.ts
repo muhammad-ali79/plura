@@ -35,6 +35,8 @@ export default authMiddleware({
       url.pathname === "/" ||
       (url.pathname === "/site" && url.host === process.env.NEXT_PUBLIC_DOMAIN)
     ) {
+      // rewrite modify the url to /site with the base url(req.url)
+      // but in borwser we only see the url that we write
       return NextResponse.rewrite(new URL("/site", req.url));
     }
 
