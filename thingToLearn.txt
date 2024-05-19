@@ -1,1 +1,32 @@
 1. ForwaredRef
+Challange : Subaccount Guest
+2. clerk Proiveder in layouts where components are should be protected
+
+
+
+
+files
+agency-details
+upload-file
+uploadthing.ts
+/api/uploadthing
+queries.ts
+global/loading.tsx
+global/loading-page.tsx
+components/icons
+constants
+schema.prisma / remove the customre id from the file / generate  / push
+create [agencyId]/page.tsx
+
+
+
+Packages
+pnpx add tremor/react
+uuid
+@types/uuid
+
+
+
+WIP
+cust id
+discountinue the subscriptions
