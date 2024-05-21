@@ -71,6 +71,7 @@ const FormSchema = z.object({
   state: z.string().min(1),
   country: z.string().min(1),
   agencyLogo: z.string().min(1),
+  goal: z.number(),
 });
 
 const AgencyDetails = ({ data }: Props) => {
@@ -91,6 +92,7 @@ const AgencyDetails = ({ data }: Props) => {
       state: data?.state,
       country: data?.country,
       agencyLogo: data?.agencyLogo,
+      goal: Number(data?.goal),
     },
   });
   const isLoading = form.formState.isSubmitting;
@@ -163,7 +165,7 @@ const AgencyDetails = ({ data }: Props) => {
         updatedAt: new Date(),
         companyEmail: values.companyEmail,
         connectAccountId: "",
-        goal: 5,
+        goal: values.goal,
       });
 
       console.log(response);
@@ -395,7 +397,7 @@ const AgencyDetails = ({ data }: Props) => {
                     defaultValue={data?.goal}
                     onValueChange={async (val) => {
                       if (!data?.id) return;
-                      await updateAgencyDetails(data.id, { goal: val });
+                      await updateAgencyDetails(data.id, { goal: +val });
                       await saveActivityLogsNotification({
                         agencyId: data.id,
                         description: `Updated the agency goal to | ${val} Sub Account`,
@@ -416,7 +418,7 @@ const AgencyDetails = ({ data }: Props) => {
           </Form>
 
           {data?.id && (
-            <div className="flex flex-row items-center justify-between rounded-lg border border-destructive gap-4 p-4 mt-4">
+            <div className="flex flex-col items-center justify-between rounded-lg border border-destructive gap-4 p-4 mt-4">
               <div>
                 <div>Danger Zone</div>
               </div>
