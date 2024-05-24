@@ -1,6 +1,7 @@
 1. ForwaredRef
 2. tanstackTable
 3. clerkClient.invations
+4. columns Defs: tanstackTable
 
 
 
@@ -51,3 +52,11 @@ Challangees
 
 give the ability to user( agency Admin) to create custom sideBard options 
 host the funnel page in an inframe in sideBar opt 
+
+
+
+
+
+STATE MANGEMEN
+// state shouldn’t contain redundant or duplicated information
+// Reducers let you consolidate a component’s state update logic
